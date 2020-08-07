@@ -20,7 +20,7 @@ const ProfileCard = ({ avatar, bio, company, username }) => {
               {company}
             </span>
           </div>
-          <p className="mt-1 text-gray-500 text-sm leading-5 truncate">{bio}</p>
+          <p className="mt-1 text-gray-500 text-sm leading-5">{bio}</p>
         </div>
       </div>
     </li>
