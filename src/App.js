@@ -23,6 +23,21 @@ class App extends React.Component {
 
   componentDidUpdate() {
     console.log("CDU");
+    axios
+      .get(this.state.mainUser.followers_url)
+      .then((res) => {
+        Promise.all(
+          res.data.map((follower) => {
+            console.log(follower.url);
+            return axios.get(follower.url);
+          })
+        )
+          .then((res) => {
+            this.setState({ ...this.state.followers, res });
+          })
+          .catch((err) => console.log(err));
+      })
+      .catch((err) => console.log(err));
   }
 
   render() {
